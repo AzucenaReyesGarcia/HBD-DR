@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="particles"></div>
+
   <section class="welcome" id="welcome">
     <div class="welcome-card">
       <div class="moon">☾</div>
@@ -19,13 +20,59 @@
     </div>
   </section>
 
-  <main class="experience" id="experience" aria-hidden="true">
-    <div class="topbar">
-      <button id="musicBtn" class="small-btn">♫ Música</button>
+  <!-- Video de introducción: aparece antes del libro -->
+  <section class="video-screen" id="videoScreen" aria-hidden="true">
+    <div class="video-card">
+      <div class="video-glow"></div>
+      <p class="video-kicker">Antes de abrir tu sorpresa… 💜</p>
+      <div class="video-frame">
+        <video id="introVideo" playsinline preload="metadata">
+          <source src="video/hbd_bts.mp4" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </div>
+      <div class="video-actions">
+        <button id="playVideoBtn" class="video-btn">▶ Reproducir</button>
+        <button id="skipVideo" class="skip-btn">Saltar video ✨</button>
+      </div>
+      <p class="video-hint">Al terminar, el libro se abrirá automáticamente.</p>
     </div>
+  </section>
+
+  <main class="experience" id="experience" aria-hidden="true">
+    <div class="topbar"><button id="musicBtn" class="small-btn">♫ Música</button></div>
 
     <section class="book-wrap">
       <div class="book" id="book">
+        <!-- Página izquierda que aparece al abrir el libro -->
+        <div class="page left-page intro-page">
+          <div class="mini-flower">❀</div>
+          <p class="small-title">Un pedacito de mi corazón</p>
+          <div class="decor">✦ ❀ ♡ ✦</div>
+        </div>
+
+        <!-- Carta: está debajo de la página de la foto -->
+        <div class="page right-page letter-page">
+          <div class="letter-scroll">
+            <h2>Mi niña hermosa 💜</h2>
+            <p id="typedText"></p>
+            <div id="signature" class="signature">Te quiero muchísimo 🌷💜✨</div>
+          </div>
+        </div>
+
+        <!-- Página de la foto: se pasa para descubrir la carta -->
+        <div class="turn-page photo-page" id="photoPage">
+          <div class="photo-content">
+            <div class="photo-frame">
+              <img src="HBD-DR/imagenes/foto1.png" alt="Nuestra foto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="photo-placeholder">📸<br><small>Agrega aquí<br>imagenes/foto.jpeg</small></div>
+            </div>
+            <p class="photo-caption">Un recuerdo para guardar siempre ✨</p>
+            <button id="nextPageBtn" class="next-btn">Leer mi cartita 💌</button>
+          </div>
+        </div>
+
+        <!-- Portada: ahora está del lado correcto y abre hacia la izquierda -->
         <div class="cover" id="cover">
           <div class="cover-inner">
             <div class="cover-flower">❀</div>
@@ -34,31 +81,11 @@
             <span>💜</span>
           </div>
         </div>
-
-        <div class="page left-page">
-          <div class="photo-frame">
-            <img src="imagenes/foto.jpeg" alt="Nuestra foto" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="photo-placeholder">📸<br><small>Agrega aquí<br>imagenes/foto.jpeg</small></div>
-          </div>
-          <p class="photo-caption">Un recuerdo para guardar siempre ✨</p>
-          <div class="decor">✦ ❀ ♡ ✦</div>
-        </div>
-
-        <div class="page right-page">
-          <div class="letter-scroll">
-            <h2>Mi niña hermosa 💜</h2>
-            <p id="typedText"></p>
-            <div id="signature" class="signature">Te quiero muchísimo 🌷💜✨</div>
-          </div>
-        </div>
       </div>
     </section>
   </main>
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="musica/cancion.mp3" type="audio/mpeg">
-  </audio>
-
+  <audio id="bgMusic" loop preload="auto"><source src="musica/bts.mp3" type="audio/mpeg"></audio>
   <script src="script.js"></script>
 </body>
 </html>
